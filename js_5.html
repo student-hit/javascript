@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class - 5</title>
+</head>
+<body>
+    <script>
+
+        // function greeetings(){
+        //     console.log("hello")
+        // }
+
+        // greeetings()
+
+
+        // function add(){
+        //     console.log(10+5)
+        // }
+
+        // add()
+
+        // function add(a,b){
+        //     console.log(a+b);
+        // }
+
+        // add(34,43)
+        // add(34,63)
+
+
+        // function greet(age, name="unknown user"){
+        //     console.log(`hello ${name} Have a good day. you are ${age} year old`);
+        // }
+
+        // greet(22, 'rohit')
+
+
+        // function add(a,b){
+        //     console.log(a+b)
+        //     return a+b
+        // }
+
+        // let result = add(23,34)
+        // console.log("value of result is",result)
+        // console.log(result*10);
+
+
+        // let n1 = parseFloat(prompt("enter first number"))
+        // console.log(n1)
+        // let n2 = parseFloat(prompt("enter second number"))
+        // console.log(n2)
+        // let choice = prompt("1 add 2 sub 3 mul 4 div")
+        // if(choice==1){
+        //     console.log(n1+n2)
+        // }
+        // else if(choice==2){
+        //     console.log(n1-n2)
+        // }
+        // else if (choice==3){
+        //     console.log(n1*n2)
+        // }
+        // else if(choice==4){
+        //     console.log(n1/n2)
+        // }
+        // else{
+        //     console.log(invalid)
+        // }
+
+        function add(a,b){
+        return a+b
+        }
+
+        function sub(a,b){
+        return a-b
+        }
+
+        function mul(a,b){
+        return a*b
+        }
+
+        function div(a,b){
+        return a/b
+        }
+
+        let n1 = parseFloat(prompt("enter first number"))
+        console.log(n1)
+        let n2 = parseFloat(prompt("enter second number"))
+        console.log(n2)
+        let choice = prompt("1 add 2 sub 3 mul 4 div")
+        if(choice==1){
+            console.log(add(n1,n2))
+        }
+        else if(choice==2){
+            console.log(sub(n1,n2))
+        }
+        else if (choice==3){
+            console.log(mul(n1,n2))
+        }
+        else if(choice==4){
+            console.log(div(n1,n2))
+        }
+        else{
+            console.log(invalid)
+        }
+
+        let again = confirm("do you want to cont");
+        while(again){
+            let n1 = parseFloat(prompt("enter first number"))
+        console.log(n1)
+        let n2 = parseFloat(prompt("enter second number"))
+        console.log(n2)
+        let choice = prompt("1 add 2 sub 3 mul 4 div")
+        if(choice==1){
+            console.log(add(n1,n2))
+        }
+        else if(choice==2){
+            console.log(sub(n1,n2))
+        }
+        else if (choice==3){
+            console.log(mul(n1,n2))
+        }
+        else if(choice==4){
+            console.log(div(n1,n2))
+        }
+        else{
+            console.log(invalid)
+        }
+        }
+
+
+    </script>
+</body>
+</html>

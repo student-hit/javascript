@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculater js</title>
+    <link rel="stylesheet" href="link rel="stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />">
+    <style>
+        .container {
+            height: 450px;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            margin-top: 8%;
+            margin-left: 40%;
+            border: solid 1px;
+            border-radius: 20px;
+        }
+
+        #inf {
+            height: 50px;
+            width: 300px;
+            background-color: white;
+            font-size: 30px;
+            outline: none;
+            text-align: end;
+        }
+
+        button {
+            height: 55px;
+            width: 70px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .shcont {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cl2 {
+            width: 220px;
+            background-color: rgb(208, 40, 40);
+        }
+
+        #cl1 {
+            background-color: rgb(208, 40, 40);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="in">
+            <input id="inf" type="text" readonly>
+        </div>
+
+        <div class="shcont">
+
+            <div class="btnl1">
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">/</button>
+            </div>
+
+            <div class="btnl2">
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn">*</button>
+            </div>
+
+            <div class="btn3">
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">-</button>
+            </div>
+
+            <div class="btnl4">
+                <button class="btn">.</button>
+                <button class="btn">0</button>
+                <button class="btn">+</button>
+                <button id="cl1">c</button>
+            </div>
+
+            <div class="eql">
+                <button onclick="" id="cl2">=</button>
+                <button id="pg">X</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        let screen = document.querySelector("input")
+        let btns = document.querySelectorAll("button")
+        let amd  = document.getElementById("pg")
+
+        // console.log(btns);
+
+        insertedText = ""
+
+        for (let btn of btns) {
+
+            // console.log(btn);
+
+            btn.addEventListener("click", (e) => {
+                screenValue = screen.value
+
+                if (e.target.innerHTML === 'c') {
+                    screen.value = "";
+
+                    // console.log(insertedText);
+                }
+
+                else if (e.target.innerHTML === '=') {
+
+                    // console.log(screenValue);
+
+                    screenValue = eval(screenValue)
+                    screen.value = screenValue;
+                }
+
+                else if(e.target.innerHTML === 'X'){
+                    screenValue = screen.slice(0, -1)
+                    screen.value = screenValue
+                }
+
+                else {
+                    screenValue += e.target.innerHTML;
+                    screen.value  = screenValue;
+                }
+            })
+
+        }
+    </script>
+
+// <!-- function deleteCharacter() {
+//     const result = document.getElementById('result').value;
+//     document.getElementById('result').value = result.slice(0, -1);
+// } -->
+
+
+    <!-- <script>
+    let screen = document.querySelector("input")
+    let btns = document.querySelectorAll("button")
+    //   console.log(btns);
+    insertedText = ""
+    for (let btn of btns) {
+        // console.log(btn);
+        btn.addEventListener("click", (e) => {
+            screenValue = screen.value
+
+            if (e.target.innerHTML === 'C') {
+                screen.value = "";
+                // console.log(insertedText);
+            }
+
+            else if (e.target.innerHTML === '=') {
+                console.log(screenValue);
+                screenValue = eval(screenValue)
+                screen.value = screenValue;
+            }
+
+            else {
+                screenValue += e.target.innerHTML;
+                screen.value = screenValue;
+
+            }
+        })
+    }
+</script> -->
+
+</body>
+
+</html>

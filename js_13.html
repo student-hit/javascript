@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <h1>this is somethings</h1>
+    <button>click</button>
+
+    <script>
+        let had = document.querySelector("h1")
+        let btn = document.querySelector("button")
+
+       btn.addEventListener ("click" , (r) => {
+        had.innerHTML = "change by js"
+        console.log(r.target.innerHTML);
+       })
+    </script> -->
+
+    <!-- <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+
+    <script>
+        let btns = document.getElementsByClassName("btn")
+        for(let bts of btns){
+            // console.log(bts);
+            bts.addEventListener("click",(e) => {
+                console.log(e.target.innerHTML);
+            })
+        }
+    </script> -->
+
+    <!-- creat new html element by using JS -->
+
+    <!-- <ul id="qs">
+        <li>erty</li>
+    </ul>
+
+    <script>
+
+        let xyz = document.getElementById("qs")
+        console.log(xyz);
+        let elm = document.createElement("div")
+        xyz.appendChild(elm).innerHTML = "creat by js"
+        elm.id = "s1"
+        elm.classList.add("idv1")
+
+        let para = document.createElement("p")
+        para.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing el a eurgn "
+
+        let body = document.body
+        body.appendChild(elm)
+        elm.appendChild(para)
+        // console.log(elm);
+
+    </script> -->
+
+    <!-- <ul id="qw">
+        <li>cras</li>
+        <li>pens</li>
+        <li>Mobile</li>
+        <li>Laptop</li>
+    </ul>
+
+    <script>
+        let list = document.getElementById("qw")
+        console.log(list);
+        let lists = document.createElement("li")
+        list.appendChild(lists).innerHTML="desktop" 
+
+    </script> -->
+
+
+    <!-- 1st to do list -->
+
+    <!-- <input type="text" name="" id="in" placeholder="Enter task">
+    <button id="btn">Add task</button>
+    <h2>Tasks</h2>
+    <ol id="tk"></ol> -->
+
+
+    <!-- <script>
+
+        let input_fild = document.getElementById("in")
+        let bts = document.getElementById("btn")
+        let list = document.getElementById("tk")
+
+        bts.addEventListener("click", () => {
+
+            let lists = document.createElement("li")
+            lists.innerHTML = input_fild.value;
+
+            list.appendChild(lists)
+            input_fild.value = ""
+
+            // let list = document.querySelector("ol")
+            // list.removeChild(document.querySelectorAll("li")[3])
+
+        })
+    </script> -->
+
+
+    <!-- 2nd to do list -->
+
+
+     <input type="text" id="in1" placeholder="Enter text">
+    <button id="btn1">Add Task</button>
+    <h2>Tasks:</h2>
+    <ol id="qw"></ol>
+
+
+    <script>
+
+        let input_fild = document.getElementById("in1")
+        let btn = document.getElementById("btn1")
+        let list = document.getElementById("qw")
+
+        btn.addEventListener("click",() => {
+           
+            let listItem = document.createElement("li")
+
+            let listItemContainer = document.createElement('div')
+
+            let tastText = document.createElement("span")
+            tastText.innerHTML = input_fild.value
+
+            let dltBtn = document.createElement("button")
+            dltBtn.innerHTML = "Delete"
+            dltBtn.classList.add("deleteTask")
+
+            listItemContainer.append(tastText)
+            listItemContainer.append(dltBtn)
+
+            listItem.appendChild(listItemContainer)
+
+            let ul = document.querySelector("ol")
+            ul.appendChild(listItem)
+
+            dltBtn.addEventListener("click",(e) => {
+            
+               ul.removeChild(e.target.parentNode.parentNode)
+            } )
+            input_fild.value = "" 
+
+
+            // console.log(lists)
+             // let lists = document.createElement("div")
+
+            // let lg = document.createElement("li")
+            // lg.style.listStyle = "none"
+
+            // let gt = document.createElement("div")
+            // gt.id = "did"
+
+            // let spg = document.createElement("li")
+            // spg.innerHTML = input_fild.value
+
+            // let bt = document.createElement("button")
+            // bt.innerHTML = "Delete"
+            // spg.appendChild(bt)
+
+
+            // let body = document.body
+            // body.appendChild(lists)
+            // lists.appendChild(lg)
+            // lg.appendChild(gt)
+            // gt.appendChild(spg)
+
+            //    let lists = document.querySelector("div")
+            //    lists.removeChild(document.querySelector("li"))
+
+        } )
+
+    </script> 
+
+</body>
+
+</html>
+
+<!-- (LI -> DIv -> Text -> Button ) ==> UL  -->
+
+<!-- js 12 revison huaa tha phali classis ka  -->
+<!-- js 14 calculater bnaa ya tha  -->

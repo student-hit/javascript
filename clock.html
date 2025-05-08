@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog clock</title>
+    <style>
+        img{
+            height: 300px;
+            width: 300px;
+            background-color: white;
+            position: absolute;
+            top: 20%;
+            left: 40%;
+        }
+
+        .second_hand{
+            height: 125px;
+            width: 3px;
+            background-color: red;
+            position: absolute;
+            top: 23%;
+            left: 49.5%;
+            animation-name: schand;
+            animation-duration: 60s;
+            animation-iteration-count: infinite;
+            transform-origin: bottom;
+        }
+
+        @keyframes schand{
+            0%{transform: rotatez(0deg);}
+            100%{transform: rotatez(360deg);}
+        }
+
+        .minuts_hand{
+            height: 100px;
+            width: 3px;
+            background-color: green;
+            position: absolute;
+            top: 26.3%;
+            left: 49.5%;
+            animation-name: mshand;
+            animation-duration: 3600s;
+            animation-iteration-count: infinite;
+            transform-origin: bottom;
+        }
+
+        @keyframes mshand{
+            0%{transform: rotatez(0deg);}
+            100%{transform: rotatez(360deg);}
+        }
+
+        .hours_hand{
+            height: 80px;
+            width: 3px;
+            background-color: yellow;
+            position: absolute;
+            top: 29%;
+            left: 49.5%;
+            animation-name: hshand;
+            animation-duration: 43200s;
+            animation-iteration-count: infinite;
+            transform-origin: bottom;
+        }
+
+        @keyframes hshand{
+            0%{transform: rotatez(0deg);}
+            100%{transform: rotatez(360deg);}
+        }
+
+    </style>
+</head>
+<body>
+    <img src="D:/Downloads/clock1.png" alt="">
+    <div class="second_hand"></div>
+    <div class="minuts_hand"></div>
+    <div class="hours_hand"></div>
+
+    <script>
+        let d = new Date()
+        let t = d.toLocaleTimeString()
+    </script>
+
+</body>
+</html>

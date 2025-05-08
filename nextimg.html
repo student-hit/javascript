@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>next image</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <img src="D:/Downloads/img1.jpg" alt="">
+    <button id="btn">Next img</button>
+
+    <script>
+
+        let im = document.querySelector("img")
+        let bt = document.querySelector("button")
+
+
+        // var p1 = im
+        // var p2 = im
+        // var p3 = im
+        // var p4 = im
+
+        let num = 1
+
+        im.src = "D:/Downloads/img"+num+".jpg"
+        im.src = "D:/Downloads/img"+num+".jpg"
+        im.src = "D:/Downloads/img"+num+".jpg"
+        im.src = "D:/Downloads/img"+num+".jpg"
+
+
+        bt.addEventListener("click", () => {
+            im.src = "+1"
+        })
+        
+
+        // bt.addEventListener("click", () => {
+        //     im.src = "D:/Downloads/img2.jpg"
+        // })
+
+        // bt.addEventListener("click", () => {
+        //     im.src = "D:/Downloads/pexels-vecislavas-popa-1643389.jpg"
+        //     bt.addEventListener("click", () => {
+        //         im.src = "D:/Downloads/188121 - Copy.jpg"
+        //         bt.addEventListener("click", () => {
+        //             im.src = "D:/Downloads/pexels-pixabay-164338.jpg"
+        //             bt.addEventListener("click", () => {
+        //                 im.src = "D:/Downloads/pexels-vecislavas-popa-1643389.jpg"
+        //             })
+        //             })
+        //         })
+        //     })
+
+    </script>
+</body>
+
+</html>

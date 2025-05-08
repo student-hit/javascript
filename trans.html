@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>English to Hindi Translator</title>
+     <style>
+
+     </style>
+</head>
+
+<body>
+     <div class="container">
+          <h1>English to Hindi Translator</h1>
+          <textarea id="inputText" placeholder="Enter English text"></textarea>
+          <button id="translateButton">Translate</button>
+          <div id="translatedText"></div>
+     </div>
+      <script>
+          const translateButton = document.getElementById('translateButton');
+          const inputText = document.getElementById('inputText');
+          const translatedText = document.getElementById('translatedText');
+
+          const subscriptionKey = 'YOUR_SUBSCRIPTION_KEY';
+          const endpoint = 'https://api.cognitive.microsofttranslator.com';
+          const location = 'YOUR_LOCATION'; // For example, 'eastus'
+
+          translateButton.addEventListener('click', () => {
+               const textToTranslate = inputText.value.trim();
+
+               if (textToTranslate !== '') {
+                    translateText(textToTranslate);
+               }
+          });
+
+          async function translateText(text) {
+               const requestBody = [{
+                    text: text
+               }];
+
+               const response = await fetch(`${endpoint}/translate?api-version=3.0&to=hi`, {
+                    method: 'POST',
+                    headers: {
+                         'Ocp-Apim-Subscription-Key': subscriptionKey,
+                         'Ocp-Apim-Subscription-Region': location,
+                         'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+               });
+
+               const data = await response.json();
+               const translated = data[0].translations[0].text;
+               translatedText.textContent = translated;
+          } 
+
+     </script>
+     
+</body>
+
+</html>

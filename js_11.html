@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS class - 10</title>
+
+    <style>
+        img{
+            height: 400px;
+            width: 700px;
+            position: relative;
+            left: 27%;
+        }
+
+        #rng{
+            position: absolute;
+            top: 57%;
+            left: 45%;
+        }
+
+        #bng{
+            position: absolute;
+            top: 57%;
+            left: 39%;
+        }
+
+        /* .cont{
+            filter: brightness(100%);
+        } */
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <!-- <h1 onmouseover="alert('why do you click')">Lorem ipsum dolor sit amet.</h1>
+    <button onclick="alert('plese remove the mouse')">click here</button> -->
+
+    <!-- <button onclick="asd()">Dark mode</button>
+   
+    <script>
+        function asd (){
+            document.body.style.backgroundColor = "black"
+            document.body.style.color = "white"
+        }
+    </script> -->
+
+    <!-- <button onclick="dark_mode()" id="btn11">Dark mode</button>
+    <button onclick="light_mode()" id="btn12">Light mode</button>
+
+            
+
+    <script>
+
+            light_mode()
+
+        function dark_mode(){
+            document.body.style.backgroundColor = "black"
+            document.body.style.color = "white"
+            // let btn = document.getElementById("btn11")
+            // btn.style.display="none"
+            let btn11 = document.getElementById("btn11")
+            let btn12 = document.getElementById("btn12")
+            btn11.style.display="none"
+            btn12.style.display="block"
+        }
+
+        function light_mode(){
+            document.body.style.backgroundColor = "white"
+            document.body.style.color = "black"
+            // let btn = document.getElementById("btn12")
+            // btn.style.display="none"
+            let btn11 = document.getElementById("btn11")
+            let btn12 = document.getElementById("btn12")
+            btn11.style.display="block"
+            btn12.style.display="none"
+        }
+    </script> -->
+
+    <!-- <input id="num1" type="number" placeholder="Please enter number"> <br>
+    <button onclick="asd()">Print Table</button>
+
+    <script>
+        function asd (){
+            let num = document.getElementById("num1").value
+            for(let i=1;i<11;i++){
+                // console.log(num*i);
+                document.write(`${num*i} <br/>`);
+            }
+        }
+    </script> -->
+
+
+
+    <img src="D:\Downloads\pexels-vecislavas-popa-1643389.jpg" alt="">
+    <label id="bng" for="">Brightness:</label>
+    <input onmouseover="zx()" type="range" name="range" id="rng" min="1" max="200" value="100"> <br>
+
+
+    <script>
+        let rangeField = document.querySelector("input")
+        rangeField.addEventListener("input", () => {
+            let img = document.querySelector("img")
+            let v = rangeField.value;
+            // console.log(v);
+            img.style.filter = "brightness("+ v +"%)"
+        })
+    </script>
+
+   <!-- <div>
+    <label for="">plese enter num1</label>
+    <input type="number" id="num-1">
+   </div>
+
+    <br>
+
+    <div >
+        
+    <label for="">plese enter num2</label>
+    <input type="number" id="num-2">
+    </div>
+
+     <br>
+
+   <div>
+    <select name="" id="opt">
+        <option value="">-- select --</option>
+        <option value="addition">add</option>
+        <option value="subtraction">sub</option>
+        <option value="multiplication">mul</option>
+        <option value="division">div</option>
+    </select>
+   </div>
+
+
+
+   <div >
+    <button onclick="Calculate()" id="btn1">Calculate</button>
+   </div>
+
+    <br>
+
+    <div>
+        <label for="">Result</label>
+    <input type="text" id="Result" readonly>
+    </div>
+
+    <script>
+        let input_fild1 = document.getElementById("num-1")
+        let input_fild2 = document.getElementById("num-2")
+        let choice_list = document.getElementById("opt")
+        let btn =document.getElementById("btn1")
+        let result_fild = document.getElementById("Result")
+        
+        // console.log(input_fild1,input_fild2,choice_list,result_fild);
+
+        function add (a, b){
+            return a + b
+        }
+
+        function sub (a, b){
+            return a - b
+        }
+
+        function mul (a, b){
+            return a * b
+        }
+
+        function divi (a, b){
+            return a / b
+        }
+
+        function Calculate() {
+            let num1 = parseInt(input_fild1.value)
+            let num2 = parseInt(input_fild2.value)
+
+            let opt = choice_list.value
+
+            // console.log(num1,num2,opt);
+        
+
+        if (opt == 'addition'){
+            result_fild.value=add(num1, num2); 
+        }
+
+       else if (opt == 'subtraction'){
+            result_fild.value=sub(num1, num2); 
+        }
+
+        else if (opt == 'multiplication'){
+            result_fild=mul(num1, num2); 
+        }
+
+
+        else if (opt == 'division'){
+            result_fild.value=divi(num1, num2); 
+        }}
+
+    </script> -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>API</title>
+</head>
+
+<body>
+
+     <div class="contaner">
+          <div>
+               <input type="text" placeholder="Search Weather"> <br>
+               <button id="btn">Search</button>
+          </div>
+     </div>
+
+     <script>
+          // navigator.geolocation.getCurrentPosition((possition) => {
+          //      console.log(possition);
+          //      let lat = possition.coords.latitude
+          //      let lon = possition.coords.longitude
+          //      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6866b6603454f88ad2f26aad4fd3c7a5&units=metric`
+
+
+               // api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid=6866b6603454f88ad2f26aad4fd3c7a5
+
+               // https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6866b6603454f88ad2f26aad4fd3c7a5&units=metric
+
+
+          //      let request = new XMLHttpRequest
+          //      request.addEventListener("readystatechange", () => {
+          //           if (request.readyState == 4 && request.status == 200) {
+          //                // console.log(request.responseText);
+          //                let data = JSON.parse(request.responseText)
+          //                // console.log(data);
+          //                let temp = data.main.temp
+          //                console.log(temp, "°C");
+          //           }
+          //      // })
+
+          //      request.open("GET", url)
+          //      request.send()
+
+          // }, (error) => {
+          //      console.log(error);
+          // })
+
+          let btn = document.querySelector("button")
+          let input_field = document.querySelector("input")
+
+          btn.addEventListener("click", () => {
+               let city = input_field.value
+
+               if (city.length > 0) {
+                    let url = `ta/2.5/forecast?rmap.org/daq=${city}&appid=6866b6603454f88ad2f26aad4fd3capi.openweathe7a5`
+
+
+                    // api.openweathermap.org/data/2.5/forecast/daily?q={city name}&cnt={cnt}&appid={API key}
+
+                    // https://pro.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={API key}
+
+                    // https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6866b6603454f88ad2f26aad4fd3c7a5&units=metric
+
+
+                    let request = new XMLHttpRequest
+                    request.addEventListener("readystatechange", () => {
+                         if (request.readyState == 4 && request.status == 200) {
+                              // console.log(request.responseText);
+                              let data = JSON.parse(request.responseText)
+                              console.log(data);
+                              let temp = data.main.temp
+                              console.log(temp, "°C");
+                              // document.write(temp,"°C")
+                         }
+                    })
+
+                    request.open("GET", url)
+                    request.send()
+               }
+          })
+
+     </script>
+</body>
+
+</html>

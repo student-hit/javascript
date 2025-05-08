@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        .contaner {
+            height: 200px;
+            width: 850px;
+            background-color: springgreen;
+            color: black;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            font-size: 35px;
+        }
+    </style>
+</head>
+
+
+<input type="datetime-local">
+<button>Start timer</button>
+
+
+<div class="contaner">
+    <div class="days"></div>
+    <div class="hours"></div>
+    <div class="minutes"></div>
+    <div class="seconds"></div>
+</div>
+
+<body>
+    <script>
+
+       let btn = document.querySelector("button") 
+
+       btn.addEventListener("click",() => {
+        let date = document.querySelector("input").value
+        console.log(date,typeof date);
+
+        let dateobject = new Date(date)
+        console.log(dateobject);
+
+        let t = dateobject
+
+       })
+
+        setInterval(() => {
+            let d = new Date()
+            console.log(d);
+
+            let t = new Date()
+            console.log(t);
+
+            let m = (t - d) 
+            console.log(m);
+
+            var days = Math.floor(m / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((m % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((m % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((m % (1000 * 60)) / 1000);
+
+            document.querySelector(".days").innerHTML = days + "Days"
+            document.querySelector(".hours").innerHTML = hours + "Hours"
+            document.querySelector(".minutes").innerHTML = minutes + "Minutes"
+            document.querySelector(".seconds").innerHTML = seconds + "Seconds"
+
+            console.log(days, hours, minutes, seconds);
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

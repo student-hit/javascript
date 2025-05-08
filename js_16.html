@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <form action="js1prst.htmt">
+        <p>
+            <label for="">Enter name:</label> <span id="req">*</span>
+            <br>
+            <input type="text" id="name" autocomplete="off"> <br>
+            <small id="nameError">This is mandatory</small>
+        </p>
+
+        <p>
+            <label for="">Phone no.:</label> <span id="req">*</span>
+            <br>
+            <input type="text" id="Phone" autocomplete="off"> <br>
+            <small id="phoneError">This is mandatory</small>
+        </p>
+
+        <input type="submit" id="btn" value="Submit">
+    </form>
+
+    <script>
+
+        let namefild = document.getElementById("name")
+        let phonefild = document.getElementById("Phone")
+        let bts = document.getElementById("btn")
+        let name_Error = document.getElementById("nameError")
+        let phone_Error = document.getElementById("phoneError")
+
+        namefild.addEventListener("focus", () => {
+            // namefild.style.border = "2px solid green"
+            // namefild.style.outline = "none"
+            name_Error.innerHTML = "Name should be start captial letter and 3 to 20 charecter long"
+        })
+
+        namefild.addEventListener("blur", () => {
+            let name = namefild.value;
+            if (/^[A-Z][a-z]{2,19}$/.test(name)) {
+                namefild.style.border = "solid green"
+                nameError.innerHTML = ""
+            }
+            else {
+                namefild.style.border = "solid red"
+                nameError.innerHTML = ""
+            }
+        })
+
+
+        phonefild.addEventListener("focus", () => {
+            // namefild.style.border = "2px solid green"
+            // namefild.style.outline = "none"
+            phone_Error.innerHTML = "Number can be start with a number from 6 to 9"
+        })
+
+        phonefild.addEventListener("blur", () => {
+            let p= phonefild.value;
+            if (/^[6-9][0-9]{9}$/.test(p)) {
+                phonefild.style.border = "solid green"
+                phone_Error.innerHTML = ""
+            }
+            else {
+                phonefild.style.border = "solid red"
+                phone_Error.innerHTML = ""
+            }
+        })
+
+        bts.addEventListener("click", (e) => {
+            if (phone_Error.innerHTML.length > 0 && nameError.innerHTML.length > 0) {
+                e.preventDefault();
+            }
+        })
+
+    </script>
+
+    <!-- <script>
+        
+        let d = new Date()
+        console.log(d);
+
+        let month = d.getMonth()
+        console.log(month);
+
+        let date = d.getDate()
+        console.log(date);
+
+        let day = d.getDay()
+        console.log(day);
+
+        
+        // console.log(d.toTimeString);
+        // console.log(d.toLocaleTimeString);
+    </script> -->
+
+    <div class="contaner">
+        <div class="date"></div>
+        <div class="time"></div>
+    </div>
+
+    <script>
+        function currentdattime() {
+            let d = new Date()
+            let date = d.toLocaleDateString()
+            let time = d.toLocaleTimeString()
+
+            document.querySelector(".date").innerHTML = date
+            document.querySelector(".time").innerHTML = time
+        }
+
+        currentdattime()
+        setInterval(currentdattime, 1000)
+
+
+
+        // document.querySelector(".hours").innerHTML = hours + "Hours"
+        // document.querySelector(".minutes").innerHTML = minutes + "Minutes"
+        // document.querySelector(".seconds").innerHTML = seconds + "Seconds"
+
+
+        // var hours = Math.floor((m % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        // var minutes = Math.floor((m % (1000 * 60 * 60)) / (1000 * 60));
+        // var seconds = Math.floor((m % (1000 * 60)) / 1000);
+
+
+     </script>
+
+
+</body>
+
+</html>

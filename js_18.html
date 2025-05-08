@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            background-color: hotpink;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="11" cellpadding="15" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+        </tr>
+    </table>
+
+    <script>
+        var request = new XMLHttpRequest
+        //    console.log(request);
+
+        request.addEventListener("readystatechange", () => {
+            if (request.readyState == 4 && request.status == 200) {
+                let data = request.response
+                let alpha = JSON.parse(data)
+
+                console.log(alpha);
+
+                // console.log(alpha.id);
+                // console.log(alpha.name);
+
+                for (user of alpha) {
+
+                    let row = document.createElement("tr")
+                    let id_cell = document.createElement("td")
+                    let name_cell = document.createElement("td")
+                    let user_cell = document.createElement("td")
+                    let email = document.createElement("td")
+                    let ph_cell = document.createElement("td")
+                    let add_cell = document.createElement("td")
+
+                    id_cell.innerHTML = user.id
+                    name_cell.innerHTML = user.name
+                    user_cell.innerHTML = user.username
+                    email.innerHTML = user.email
+                    ph_cell.innerHTML = user.phone
+                    add_cell.innerHTML = user.address.city
+
+
+                    row.appendChild(id_cell)
+                    row.appendChild(name_cell)
+                    row.appendChild(user_cell)
+                    row.appendChild(email)
+                    row.appendChild(ph_cell)
+                    row.appendChild(add_cell)
+
+                    document.querySelector("table").appendChild(row)
+
+                    // console.log(user.id, user.name, user.username, user.email, user.address);
+                }
+            }
+            // console.log(request);
+        })
+
+        request.open("GET", "https://jsonplaceholder.typicode.com/users")
+        request.send()
+    </script>
+</body>
+
+</html>

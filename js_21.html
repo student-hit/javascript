@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function getTodos(url, callback) {
+        let request = new XMLHttpRequest();
+        request.addEventListener("readystatechange", () => {
+          if (request.readyState == 4) {
+            if (request.status == 200) {
+              callback(undefined, request.responseText);
+            } else {
+              callback("Could not fetch data", undefined);
+            }
+          }
+        });
+        request.open("GET", url);
+        request.send();
+      }
+
+      console.log(1);
+      console.log(2);
+      getTodos("https://jsonplaceholder.typicode.com/todos/1", showOutput);
+      console.log(3);
+      console.log(4);
+
+      function showOutput(err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(data);
+          getTodos(
+            "https://jsonplaceholder.typicode.com/todos/2",
+            (err, data) => {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log(data);
+                getTodos(
+                  "https://jsonplaceholder.typicode.com/todos/3",
+                  (err, data) => {
+                    if (err) {
+                      console.log(err);
+                    } else {
+                      console.log(data);
+                      getTodos(
+                        "https://jsonplaceholder.typicode.com/todos/4",
+                        (err, data) => {
+                          if (err) {
+                            console.log(err);
+                          } else {
+                            console.log(data);
+                            getTodos(
+                              "https://jsonplaceholder.typicode.com/todos/5",
+                              (err, data) => {
+                                if (err) {
+                                  console.log(err);
+                                } else {
+                                  console.log(data);
+                                  getTodos(
+                                    "https://jsonplaceholder.typicode.com/todos/6",
+                                    (err, data) => {
+                                      if (err) {
+                                        console.log(err);
+                                      } else {
+                                        console.log(data);
+                                        getTodos(
+                                          "https://jsonplaceholder.typicode.com/todos/7",
+                                          (err, data) => {
+                                            if (err) {
+                                              console.log(err);
+                                            } else {
+                                              console.log(data);
+                                            }
+                                          }
+                                        );
+                                      }
+                                    }
+                                  );
+                                }
+                              }
+                            );
+                          }
+                        }
+                      );
+                    }
+                  }
+                );
+              }
+            }
+          );
+        }
+      }
+    </script>
+
+
+
+
+
+
+
+
+
+    <script>
+      function getTodos(url) {
+        return new Promise((resolve, reject) => {
+          let request = new XMLHttpRequest();
+          request.addEventListener("readystatechange", () => {
+            if (request.readyState == 4) {
+              if (request.status == 200) {
+                let data = JSON.parse(request.responseText);
+                resolve(data);
+              } else {
+                reject("Could not fetch the data");
+              }
+            }
+          });
+          request.open("GET", url);
+          request.send();
+        });
+      }
+
+      getTodos("https://jsonplaceholder.typicode.com/todos/1")
+        .then((data) => {
+          console.log("Promise 1:", data);
+          return getTodos("https://jsonplaceholder.typicode.com/todos/3");
+        })
+        .then((data) => {
+          console.log(data);
+          return getTodos("https://jsonplaceholder.typicode.com/todos/4");
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      // getTodos("https://jsonplaceholder.typicode.com/todos/1")
+      //      .then(data => {
+      //           console.log(data);
+      //           getTodos("https://jsonplaceholder.typicode.com/todos/3").then(data => {
+      //                console.log(data);
+      //                getTodos("https://jsonplaceholder.typicode.com/todos/3").then(data => {
+      //                     console.log(data);
+      //                     getTodos("https://jsonplaceholder.typicode.com/todos/4").then(data => {
+      //                          console.log(data)
+      //                     })
+      //                })
+      //           })
+      //      })
+      //      .catch(error => { console.log(error); })
+    </script>
+  </body>
+</html>

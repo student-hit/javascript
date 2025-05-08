@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Sticky Header Example</title>
+     <style>
+          body {
+               margin: 0;
+               font-family: Arial, sans-serif;
+          }
+
+          .sticky-header {
+               background-color: #333;
+               color: white;
+               position: fixed;
+               top: 0;
+               width: 100%;
+               z-index: 1000;
+          }
+
+          .sticky-header nav ul {
+               list-style: none;
+               margin: 0;
+               padding: 0;
+               display: flex;
+          }
+
+          .sticky-header nav ul li {
+               padding: 1rem;
+          }
+
+          .sticky-header nav ul li a {
+               text-decoration: none;
+               color: white;
+          }
+
+          .content {
+               margin-top: 100px;
+               /* Add margin to give space below the header */
+               padding: 20px;
+          }
+     </style>
+</head>
+
+<body>
+     <header class="sticky-header">
+          <nav>
+               <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+               </ul>
+          </nav>
+     </header>
+     <div class="content">
+          <!-- Page content goes here -->
+     </div>
+     <script>
+          // JavaScript is not required for basic sticky header functionality, but you can use it for more advanced behavior if needed.
+          // For instance, you might use JavaScript to add or remove CSS classes on scroll events.
+          // Example of adding a shadow class to the header on scroll:
+          
+          const header = document.querySelector('.sticky-header');
+
+          window.addEventListener('scroll', () => {
+               if (window.scrollY > 0) {
+                    header.classList.add('shadow');
+               } else {
+                    header.classList.remove('shadow');
+               }
+          });
+
+     </script>
+</body>
+
+</html>
